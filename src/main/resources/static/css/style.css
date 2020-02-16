@@ -1,0 +1,64 @@
+.form_container,
+.input_wrapper,
+.option_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.input_wrapper {
+    margin-bottom: 20px;
+}
+
+.input_wrapper label {
+    margin-right: 10px;
+}
+
+.error_message,
+.password_error_message,
+.length_username_error,
+.length_password_error,
+.name_error {
+    display: none;
+    color: red;
+}
+
+.sbmt_btn {
+    float: right;
+}
+
+/* users*/
+
+.filter_form{
+    margin:20px 0;
+}
+.users {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.user_list {
+    margin:20px 0;
+    font-size: 50px;
+    wont-weight: bold;
+}
+
+
+.user_list_item {
+    width: 20%;
+    margin: 10px 20px;
+}
+
+
+
+.user_item_buttons {
+    display: flex;
+
+}
+
+.open_btn {
+    margin-right: 10px;
+}
+
+
+

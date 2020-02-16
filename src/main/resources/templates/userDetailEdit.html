@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Registration form</title>
+</head>
+<body>
+<form method="post" th:action="@{/user/edit}">
+    <input type="hidden" th:value="${user.getId()}" name="id"/>
+    <h3 th:text="${user.getUsername() + ' - username'}"/>
+    <label>Edit first name:</label>
+    <input th:value="${user.getFirstName()}"  name="firstName"/>
+    <br>
+    <p>
+    <label>Edit last name:</label>
+    <input th:value="${user.getLastName()}" name="lastName"/>
+    </p>
+    <p>
+        <label>Edit user role:</label>
+        <select size="1" name="role">
+        <option selected value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+    </select></p>
+
+    <h3 th:text="${user.getStatus()}"></h3>
+    <h3 th:text="${user.getCreatedAt()}"></h3>
+    <button type="submit" th:text="submit"/>
+</form>
+</body>
+</html>

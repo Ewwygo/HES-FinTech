@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Registration form</title>
+</head>
+<body>
+<div>
+    <h3 th:text="${user.getId()} + ' - user id'"></h3>
+    <h3 th:text="${user.getUsername()} + ' - username'"></h3>
+    <h3 th:text="${user.getFirstName()} + ' - user first name'"></h3>
+    <h3 th:text="${user.getLastName()} + ' - user last name'"></h3>
+    <h3 th:text="${user.getRole()} + ' - user role'"></h3>
+    <h3 th:text="${user.getStatus()} + ' - user status'"></h3>
+    <h3 th:text="${user.getCreatedAt()}+ ' - was created at'"></h3>
+
+    <div th:if="${auth == 'ADMIN'}">
+        <div th:if="${user.getStatus().name() == 'ACTIVE'}">
+            <form method="post" th:action="@{/user/{id}/lock(id = ${user.getId()})}">
+                <button type="submit">Lock</button>
+            </form>
+        </div>
+        <div th:if="${user.getStatus().name() == 'INACTIVE'}">
+            <form method="post" th:action="@{/user/{id}/unlock(id = ${user.getId()})}">
+                <button type="submit">UnLock</button>
+            </form>
+        </div>
+    </div>
+
+    <a th:href="@{/user}">All users</a>
+
+</div>
+</body>
+</html>

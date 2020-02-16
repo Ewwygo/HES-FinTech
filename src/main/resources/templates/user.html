@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <title>Registration form</title>
+</head>
+<body>
+<div th:if="${e != null}">
+    <h2 th:text="${e}"></h2>
+</div>
+
+<div>
+
+
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+
+</div>
+<div class="user_list">User list</div>
+<form class="filter_form" method="post" th:action="@{/user/username-filter}">
+    <input type="text" th:placeholder="usernameFilter" name="usernameFilter">
+    <button type="submit">filter</button>
+</form>
+<div class="users">
+<div th:each="user : ${users}" class="user_list_item">
+
+    <h3 class="user_id" th:text="${user.getId()} + ' - user id'"></h3>
+    <h3 class="user_name" th:text="${user.getUsername()}+ ' - username'"></h3>
+
+    <div class="user_item_buttons">
+    <form th:action="@{/user/{id}(id= ${user.getId()})}" method="get">
+        <button class="open_btn" type="submit" th:text="Open"></button>
+    </form>
+
+    <form th:action="@{/user/{id}/edit(id = ${user.getId()})}" th:if="${auth == 'ADMIN'}">
+        <button class="edit_btn" type="submit" th:text="Edit"></button>
+    </form>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <title>Registration form</title>
+</head>
+<body>
+<div class="form_container">
+    <form id="form" class="form" method="post" th:action="@{/user/new}">
+        <div class="input_wrapper">
+            <label>User name</label>
+            <input class="form_input" type="text" name="username">
+        </div>
+        <div class="input_wrapper">
+            <label>Password</label>
+            <input class="form_input" type="password" name="password">
+        </div>
+        <div class="input_wrapper">
+            <label>First name</label>
+            <input class="form_input" type="text" name="firstName">
+        </div>
+        <div class="input_wrapper">
+            <label>Last name</label>
+            <input class="form_input" type="text" name="lastName">
+        </div>
+
+        <div class="option_wrapper">
+            <p><select size="1" name="role">
+                <option selected value="USER">USER</option>
+                <option class="form_input" value="ADMIN">ADMIN</option>
+            </select></p>
+            <p><select size="1" name="status">
+                <option selected value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+            </select></p>
+        </div>
+        <div id="errors" class="errors">
+            <div id="error_message" class="error_message">It's necessary to use only latin in username, first name and last name</div>
+            <div id="password_error" class="password_error_message">Password should contain only latin, at least one
+                symbol and number </div>
+            <div id="length_username_error" class="length_username_error">Username length should be 3-16 symbols
+            </div>
+            <div id="length_password_error" class="length_password_error">Password length should be 3-16</div>
+            <div id="name_error" class="name_error">first name and last name length should be 1-16 symbols</div>
+        </div>
+
+            <button id="btnSb" class="sbmt_btn" type="submit">Confirm</button>
+
+    </form>
+</div>
+</body>
+<script src="../static/js/FeedbackForm.js" th:src="@{/js/FeedbackForm.js}"></script>
+</html>
